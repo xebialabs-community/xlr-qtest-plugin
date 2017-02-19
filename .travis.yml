@@ -12,4 +12,6 @@ deploy:
   file: build/libs/xlr-qtest-plugin-1.0.0.jar
   skip_cleanup: true
   on:
+    tags: true
+    branch: master
     repo: xebialabs-community/xlr-qtest-plugin
