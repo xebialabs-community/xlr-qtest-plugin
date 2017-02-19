@@ -10,8 +10,8 @@ This plugin offers an interface from XL Release to QA Symphony qtest API.
 
 [xlr-qtest-plugin-travis-image]: https://travis-ci.org/xebialabs-community/xlr-qtest-plugin.svg?branch=master
 [xlr-qtest-plugin-travis-url]: https://travis-ci.org/xebialabs-community/xlr-qtest-plugin
-[xlr-qtest-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/a76c515de76640fc9e1f282575382937
-[xlr-qtest-plugin-codacy-url]: https://www.codacy.com/app/joris-dewinne/xlr-qtest-plugin
+[xlr-qtest-plugin-codacy-image]: https://api.codacy.com/project/badge/Grade/0e664aaacd2f4010b091f0ef4ce1c7d0
+[xlr-qtest-plugin-codacy-url]: https://www.codacy.com/app/amitmohleji/xlr-qtest-plugin
 [xlr-qtest-plugin-code-climate-image]: https://codeclimate.com/github/xebialabs-community/xlr-qtest-plugin/badges/gpa.svg
 [xlr-qtest-plugin-code-climate-url]: https://codeclimate.com/github/xebialabs-community/xlr-qtest-plugin
 
