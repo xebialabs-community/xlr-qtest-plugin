@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+    <type type="qtest.Server" extends="configuration.HttpConnection">
+    </type>
+
+
+    <type type="qtest.Task" extends="xlrelease.PythonScript" virtual="true">
+        <!-- Plugin -->
+        <property name="iconLocation" hidden="true" default="qtest/qtest.png"/>
+        <property name="taskColor" hidden="true" default="#0075A3"/>
+        <property name="server" category="input" label="Server" description="The qasymphony server definition to use" required="true" referenced-type="qtest.Server" kind="ci"/>
+
+
+    </type>
+
+    <type type="qtest.Login" extends="qtest.Task">
+        <property name="username" category="input" required="false" />
+        <property name="password" password="true" category="input" required="false" />
+        <!-- outputs -->
+        <property name="token" password="true" category="output" label="OAuth Token" description="OAuth Token for the session. Set it into a variable and use the variable in other tasks" />
+    </type>
+
+    <type type="qtest.AddComment" extends="qtest.Task">
+        <!-- Input -->
+        <property name="projectName" category="input" label="Project Name" description="The name of the project" kind="string" />
+        <property name="objectType" category="input" label="Object Type" required="true" kind="enum" description="The object type to search for ">
+        <enum-values>
+            <value>requirements</value>
+            <value>test-cases</value>
+            <value>test-runs</value>
+            <value>defects</value>
+        </enum-values>
+        </property>
+        <property name="objectQuery" category="input" label="Object Query" required="true" description="Object Query to use for search"/>
+        <property name="comment" category="input" label="Comment" required="true" description="Comment to post to object"/>        
+        <property name="token" password="true" category="input" label="OAuth Token" description="OAuth Token for the session. Capture using Variable from Set from Output of Login Task" />
+    </type>  
+
+    <type type="qtest.CreateTestCase" extends="qtest.Task">
+        <!-- Inputs -->
+        <property name="projectName" category="input" label="Project Name" description="The name of the project" kind="string" />
+        <property name="testName" category="input" label="Test Case Name" description="Name of the Test case" kind="string" required="true"/>
+        <property name="properties" category="input" label="Properties" description="Properties with key values" kind="map_string_string" required="true" />
+        <property name="steps" category="input" label="Test Steps" description="Steps for the Test Case. Write Description in Key Field and Expected in Value Field" kind="map_string_string" required="true" />
+        <property name="token" password="true" category="input" label="OAuth Token" description="OAuth Token for the session. Capture using Variable from Set from Output of Login Task" />
+        <!-- Outputs -->
+        <property name="testCaseId" category="output" label="Test Case Id" description="The request id for further status retrieval" kind="string" />
+    </type>
+
+
+</synthetic>
