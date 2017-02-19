@@ -3,7 +3,6 @@
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
-import json, time
 from qtest.QtestHTTPRequest import QtestHTTPRequest
 
 class qtestClient(object):
@@ -30,7 +29,7 @@ class qtestClient(object):
         return json.loads(lookup_object_by_name_response.getResponse())
     def add_comment(self, project_id, object_type,object_id, body):
         add_comment_endpoint = "/api/v3/projects/%s/%s/%s/comments" % (project_id, object_type, object_id)
-        add_comment_response = self.http_request.post(add_comment_endpoint,body, contentType="application/json")
+        self.http_request.post(add_comment_endpoint,body, contentType="application/json")
     def add_test_case(self,project_id,body):
         add_test_case_endpoint = "/api/v3/projects/%s/test-cases/" % (project_id)
         add_test_case_response = self.http_request.post(add_test_case_endpoint,body, contentType="application/json")

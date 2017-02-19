@@ -8,12 +8,8 @@ from xlrelease.HttpRequest import HttpRequest
 from com.xebialabs.xlrelease.domain.configuration import HttpConnection
 from org.apache.commons.codec.binary import Base64
 from java.lang import String
-from org.apache.http import HttpHost
-from org.apache.http.client.config import RequestConfig
 from org.apache.http.client.methods import HttpGet, HttpHead, HttpPost, HttpPut, HttpDelete, HttpPatch
-from org.apache.http.util import EntityUtils
 from org.apache.http.entity import StringEntity
-from org.apache.http.impl.client import HttpClients
 
 class QtestHTTPRequest(HttpRequest):
 
