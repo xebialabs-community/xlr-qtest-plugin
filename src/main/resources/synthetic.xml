@@ -10,6 +10,7 @@
 <synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
 
     <type type="qtest.Server" extends="configuration.HttpConnection">
+        <property name="scriptLocation" hidden="true" default="qtest/HttpConnectionCheck.py"/>
     </type>
 
 

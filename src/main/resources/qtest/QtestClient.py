@@ -4,6 +4,7 @@
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
 from qtest.QtestHTTPRequest import QtestHTTPRequest
+from org.apache.http.client import ClientProtocolException
 
 class qtestClient(object):
     def __init__(self, http_connection, username, password, token=None):
@@ -15,7 +16,19 @@ class qtestClient(object):
 
     def login(self, body):
         login_endpoint = "/oauth/token"
-        login_response = self.http_request.post(login_endpoint,body, contentType="application/x-www-form-urlencoded")
+        try:
+            login_response = self.http_request.post(login_endpoint,body, contentType="application/x-www-form-urlencoded")
+        except ClientProtocolException:
+            raise Exception("URL is not valid")
+        if not login_response.isSuccessful():
+            reason = "Unknown"
+            if login_response.status == 400:
+                reason = "Bad request"
+            elif login_response.status == 401:
+                reason = "Unauthorized"
+            elif login_response.status == 403:
+                reason = "Forbidden"
+            raise Exception("HTTP response code %s (%s)" % (login_response.status, reason))
         return json.loads(login_response.getResponse())
     def lookup_project_by_name(self,projectName):
         lookup_project_by_name_endpoint = "/api/v3/projects"
