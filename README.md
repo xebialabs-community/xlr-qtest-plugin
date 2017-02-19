@@ -25,6 +25,19 @@ This plugin offers an interface from XL Release to QA Symphony qtest API.
 + `qtest.AddComment`: This task allows you to search for objects of any type under a project and then put a comment on those objects. You can use the data Query from qtest web interface
 + `qtest.CreateTestCase` : This task allows you to add a new test case under a project. You can specify field properties by identifying the field Ids in your installation. You can also provide test steps with description and expected criteria
     
+# Usage #
+   
+* Setup the server configuration
+![](serverConfig.png)
+
+* Setup a Login Task in Template. Login will generate and Oauth token that will be passed as output and can be stored in a variable and used in other tasks for further authorization.
+![](s1.png)
+* Setup a Add Comment Task in Template
+![](s2.png)
+* Setup a Add Test Case Task in Template
+![](s3.png)
+
+
 # References #
 [QA Symphony's qtest API](https://support.qasymphony.com/hc/en-us/articles/201615649-qTest-API-v3-Specification)
 
