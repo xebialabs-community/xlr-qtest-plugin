@@ -11,7 +11,7 @@ deploy:
   - provider: releases
     api_key:
       secure: eI2FTYaWJjtvZximjYMsVzpj48mi2NEB2QyANpOzD/T+6MBfoQpAqg1KLjjqZydt3B+9nN79hapzRfeocbiVIlynsLM1dNXHuLC91yNW+4j1hXIJyPd8q1GqvVspEIO19Oit5GvPTxu3s5XlGjByizZuii8zLgmSRJb+nVqnD+llHFpiFMDtVT/QFTeqIypXX0te051UHtdAjGraPgYjs5OhEFPB8v1rg5nrVyj/Tbop7t2lL6Hg0r/PNlM9tIFEelX6tcrD1MTnnPUIvq1s7jIC1cm8OKgroL7sEE2C57q6N64jRwnl2qFy3xEys9QuI+R+B5V1wU9HHsGcqMkxu1dBARsKS1vN3YZ/YFDz7uFhe+CchnUNCSAIYTKxoKTTE9bsaJ3a/G4n0D1hYiKccK0rqaAs5QqsRJ34i+DnMFJcQzMPSc43JlUfQ0Up5qIYHtD4/WnP9Be7+upKKOlIROdfBBKWX2Z1FG08QL/y8TVCez9tq2dHYvC0tleFwpDf25T/Tcp5AxBDDUkF1+vzVWuRzpAn9t6FEBaKEK4pOzZI72nGR6m+1rv7PB6PA1bQlhARN5AdA8pcepXYh1oWuLPd7gQOcVLsEAK70vrGBMFsSCcKp/zSjCTGRcAoDvxEps7ZIkduf0qXQ8XP2mRFLY6pFJ56cHM2vBPvCcG4mZg=
-    file: build/libs/*.jar
+    file: build/libs/*
     skip_cleanup: true
     on:
       tags: true
@@ -21,7 +21,7 @@ deploy:
     skip_cleanup: true
     script: rsync --update -raz -i $TRAVIS_BUILD_DIR/build/libs/*.jar $DIST_USER@$DIST_HOST:$DIST_PATH/${TRAVIS_REPO_SLUG#*/}/
     on:
-#      tags: true
+      tags: true
       branch: master
       repo: xebialabs-community/xlr-qtest-plugin
 notifications:
